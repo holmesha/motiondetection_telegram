@@ -17,13 +17,15 @@ uart = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
 # Global variables for motion status and distance
 motion_status = "Initializing..."
 distance = "Unknown"
-max_distance = 1.0  # Default maximum distance in meters
+max_distance = 3.0  # Default maximum distance in meters
+motion_start_time = None  # Timestamp for when motion was first detected
+debounce_duration = 2  # Motion must persist for 2 seconds to confirm
 
 def parse_sensor_data(data):
     """
     Parses the sensor data to extract motion status and distance.
     """
-    global motion_status, distance
+    global motion_status, distance, motion_start_time
     try:
         decoded_data = data.decode('utf-8').split("\r\n")
         for line in decoded_data:
@@ -42,9 +44,16 @@ def parse_sensor_data(data):
                     if isinstance(distance, float) and distance > max_distance:
                         motion_status = "No Motion Detected"
                         distance = "Unknown"
-                    else:
-                        motion_status = "MOTION DETECTED!!" if motion_state == "1" else "No Motion Detected"
-                    return
+                        motion_start_time = None  # Reset debounce timer
+                    elif motion_state == "1":  # Motion detected
+                        current_time = time.time()
+                        if motion_start_time is None:
+                            motion_start_time = current_time
+                        elif current_time - motion_start_time >= debounce_duration:
+                            motion_status = "MOTION DETECTED!!"
+                    else:  # No motion
+                        motion_start_time = None
+                        motion_status = "No Motion Detected"
     except Exception as e:
         pass
 
@@ -168,5 +177,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
