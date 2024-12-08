@@ -17,6 +17,7 @@ uart = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
 # Global variables for motion status and distance
 motion_status = "Initializing..."
 distance = "Unknown"
+max_distance = 1.0  # Default maximum distance in meters
 
 def parse_sensor_data(data):
     """
@@ -37,7 +38,12 @@ def parse_sensor_data(data):
                     except ValueError:
                         distance = "Unknown"
 
-                    motion_status = "MOTION DETECTED!!" if motion_state == "1" else "No Motion Detected"
+                    # Check if the detected distance is within the maximum range
+                    if isinstance(distance, float) and distance > max_distance:
+                        motion_status = "No Motion Detected"
+                        distance = "Unknown"
+                    else:
+                        motion_status = "MOTION DETECTED!!" if motion_state == "1" else "No Motion Detected"
                     return
     except Exception as e:
         pass
