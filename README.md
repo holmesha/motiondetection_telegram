@@ -115,4 +115,4 @@ This project is a **motion detection system** that uses a Raspberry Pi Pico 2w m
 ---
 
 ## License
-This project is open-source and can be used and modified freely. Attribution is appreciated but not required. 🚀
+This project is open-source and can be used and modified freely. Attribution is appreciated! 🚀
