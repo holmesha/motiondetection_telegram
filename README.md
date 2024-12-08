@@ -2,6 +2,8 @@
 
 This project is a **motion detection system** that uses a microcontroller to monitor motion via a sensor, display the current status on a web server, and send notifications via **Telegram** whenever motion is detected. This is ideal for home automation or security setups.
 
+**I've also added a few test codes in case you want to JUST see the motion detection functionality or the webserver without Telegram**
+
 ---
 
 ## Features
