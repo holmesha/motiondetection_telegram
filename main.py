@@ -9,7 +9,7 @@ import requests
 BOT_TOKEN = "INSERT BOT TOKEN"
 CHAT_ID = "INSERT CHAT ID"
 last_notification_time = 0  # Timestamp of the last notification
-NOTIFICATION_INTERVAL = 30  # 1-minute interval for notifications
+NOTIFICATION_INTERVAL = 30  # XX Second interval for notifications
 
 # Initialize UART1 with the appropriate pins and baud rate
 uart = UART(0, baudrate=9600, tx=Pin(0), rx=Pin(1))
