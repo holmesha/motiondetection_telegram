@@ -1,6 +1,8 @@
 # Motion Detector with Telegram Notifications
 
-This project is a **motion detection system** that uses a Raspberry Pi Pico 2w microcontroller to monitor motion via a DFRobot C4001 MMWave sensor, display the current status on a web server, and send notifications via **Telegram** whenever motion is detected. This is ideal for home automation or security setups.
+This project is a **motion detection system** that uses a Raspberry Pi Pico 2w microcontroller to monitor motion via a DFRobot C4001 MMWave sensor, display the current status on a web server, and send notifications via **Telegram** whenever motion is detected. This is ideal for home automation or security setups. 
+
+This DFRobot is capable of sensing motion up to 25 meters, which is probably overkill for most homes, but I found it to have less false alerts than something like a Hi-Link LD2410C, which I also tried. You could also add more functionality like distance, motion AND still presence, etc. 
 
 **I've also added a few test codes in case you want to JUST see the motion detection functionality or the webserver without Telegram**
 
