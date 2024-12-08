@@ -1,6 +1,6 @@
 # Motion Detector with Telegram Notifications
 
-This project is a **motion detection system** that uses a microcontroller to monitor motion via a sensor, display the current status on a web server, and send notifications via **Telegram** whenever motion is detected. This is ideal for home automation or security setups.
+This project is a **motion detection system** that uses a Raspberry Pi Pico 2w microcontroller to monitor motion via a DFRobot C4001 MMWave sensor, display the current status on a web server, and send notifications via **Telegram** whenever motion is detected. This is ideal for home automation or security setups.
 
 **I've also added a few test codes in case you want to JUST see the motion detection functionality or the webserver without Telegram**
 
@@ -30,6 +30,7 @@ This project is a **motion detection system** that uses a microcontroller to mon
 ---
 
 ## Setting Up the Telegram Bot
+![Bot Father](bot_father.png)
 1. **Create a Telegram Bot**:
    - Open Telegram and search for **BotFather**.
    - Use the `/newbot` command and follow the prompts to create a new bot.
