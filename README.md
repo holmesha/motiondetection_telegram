@@ -30,7 +30,7 @@ This project is a **motion detection system** that uses a Raspberry Pi Pico 2w m
 ---
 
 ## Setting Up the Telegram Bot
-![Bot Father](bot_father.png)
+![Bot Father](bot_father.jpg)
 1. **Create a Telegram Bot**:
    - Open Telegram and search for **BotFather**.
    - Use the `/newbot` command and follow the prompts to create a new bot.
